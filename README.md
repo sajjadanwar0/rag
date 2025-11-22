@@ -1,4 +1,4 @@
-# Document RAG System
+# Document RAG
 
 A Retrieval-Augmented Generation (RAG) system that allows you to upload documents, generate summaries, and have conversations with your documents using local models via Ollama.
 
