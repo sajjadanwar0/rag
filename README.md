@@ -1,6 +1,6 @@
 # Document RAG System
 
-A Retrieval-Augmented Generation (RAG) system that allows you to upload documents, generate intelligent summaries, and have conversations with your documents using local models via Ollama.
+A Retrieval-Augmented Generation (RAG) system that allows you to upload documents, generate summaries, and have conversations with your documents using local models via Ollama.
 
 ![RAG System](https://img.shields.io/badge/Go-00ADD8?style=for-the-badge&logo=go&logoColor=white)
 ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
@@ -53,7 +53,7 @@ ollama pull mistral:7b         # Best quality (4GB)
 ollama pull qwen2.5:3b         # Fast and efficient (2GB)
 ```
 
-**Recommendation**: Start with `llama3.2:3b` for the best balance of speed and quality.
+**Recommendation**: Start with ` gemma3:1b`for the fast reponse.
 
 ### Start Ollama Service
 ```bash
@@ -65,7 +65,8 @@ Verify it's running:
 curl http://localhost:11434/api/tags
 ```
 
-### Set Up Backend
+### Set Up
+#### Backend
 ```bash
 # Clone the repo
 cd rag
@@ -90,7 +91,7 @@ go run main.go
 Server starting on http://localhost:8080
 ```
 
-### Set Up Frontend
+#### Frontend
 
 Open a new terminal:
 ```bash
