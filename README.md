@@ -314,15 +314,6 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 This project is open source and available under the [MIT License](LICENSE).
 
-## Acknowledgments
-
-- [Ollama](https://ollama.com/) - Local LLM inference
-- [React](https://react.dev/) - UI framework
-- [Go](https://go.dev/) - Backend language
-- [Vite](https://vitejs.dev/) - Frontend build tool
-- [Tailwind CSS](https://tailwindcss.com/) - Styling
-- [Lucide Icons](https://lucide.dev/) - Icon library
-
 ## Support
 
 For issues, questions, or suggestions:
