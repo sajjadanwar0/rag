@@ -105,7 +105,6 @@ cd ../frontend
 npm install
 
 #### Run Frontend
-```bash
 npm run dev
 ```
 
