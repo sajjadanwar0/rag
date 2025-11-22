@@ -97,6 +97,7 @@ const App = () => {
                             }
                         });
                     }
+
                     return newDocuments;
                 });
             } catch (err) {
@@ -113,6 +114,7 @@ const App = () => {
             if (selectedDocument && documents[selectedDocument]?.hasSummary) {
                 try {
                     const response = await fetch(`${API_URL}/document/${selectedDocument}/summary`);
+
                     if (response.ok) {
                         const data = await response.json();
                         setSummary(data.summary);
@@ -319,6 +321,7 @@ const App = () => {
                     setSummary('');
                     setConversation([]);
                 }
+
                 refreshDocuments();
             }
         } catch (err) {
@@ -347,7 +350,6 @@ const App = () => {
         ) : null;
     };
 
-    // Streamlit-style components
     const Alert = ({ type, children, onClose }) => (
         <div className={`
       p-4 rounded-md mb-4 flex justify-between items-center border
@@ -434,6 +436,7 @@ const App = () => {
                     <span>{title}</span>
                     <span className={`transition-transform duration-200 ${open ? 'rotate-180' : 'rotate-0'}`}>▼</span>
                 </button>
+
                 {open && (
                     <div className="p-4 border-t border-gray-200">
                         {children}
