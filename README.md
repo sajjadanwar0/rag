@@ -104,7 +104,7 @@ cd ../frontend
 # Install dependencies
 npm install
 
-#### Run Frontend
+# Run Frontend
 npm run dev
 ```
 
