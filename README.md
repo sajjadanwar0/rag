@@ -47,7 +47,7 @@ ollama --version
 ollama list
 
 # Pull recommended models
-ollama pull gemma3:2b          # Fast, lightweight (2GB)
+ollama pull gemma3:1b          # Fast, lightweight (Recommended for fast response)
 ollama pull llama3.2:3b        # Balanced performance (2GB)
 ollama pull mistral:7b         # Best quality (4GB)
 ollama pull qwen2.5:3b         # Fast and efficient (2GB)
@@ -67,18 +67,16 @@ curl http://localhost:11434/api/tags
 
 ### Set Up Backend
 ```bash
-# Clone or navigate to project
-mkdir rag-system && cd rag-system
-mkdir backend frontend
+# Clone the repo
+cd rag
 
 # Set up Go backend
 cd backend
 
-# Initialize Go module
-go mod init rag-backend
-
 # Install dependencies
 go get github.com/ledongthuc/pdf
+go mod tidy
+go mod download
 
 # Create documents directory
 mkdir documents
@@ -98,55 +96,8 @@ Open a new terminal:
 ```bash
 cd ../frontend
 
-# Create Vite + React project
-npm create vite@latest . -- --template react
-
 # Install dependencies
 npm install
-npm install lucide-react react-markdown remark-gfm
-
-# Install Tailwind CSS
-npm install -D tailwindcss postcss autoprefixer
-npx tailwindcss init -p
-```
-
-#### Configure Tailwind
-
-Update `tailwind.config.js`:
-```javascript
-/** @type {import('tailwindcss').Config} */
-export default {
-  content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-  ],
-  theme: {
-    extend: {},
-  },
-  plugins: [],
-}
-```
-
-Update `src/index.css`:
-```css
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-```
 
 #### Run Frontend
 ```bash
@@ -156,7 +107,7 @@ npm run dev
 **Expected output:**
 ```
 VITE v5.x.x  ready in xxx ms
-➜  Local:   http://localhost:5173/
+ Local:   http://localhost:5173/
 ```
 
 ### Access the Application
@@ -166,7 +117,7 @@ Open your browser and navigate to:
 http://localhost:5173
 ```
 
-## 📖 Usage Guide
+## Usage Guide
 
 ### Uploading Documents
 
@@ -223,30 +174,7 @@ Located in `frontend/src/App.jsx`:
 const API_URL = 'http://localhost:8080/api';
 ```
 
-## Project Structure
-```
-rag-system/
-├── backend/
-│   ├── main.go                 # Main Go backend
-│   ├── go.mod                  # Go dependencies
-│   ├── go.sum                  # Go checksums
-│   └── documents/              # Uploaded documents storage
-│       ├── example.pdf
-│       └── research.txt
-│
-└── frontend/
-    ├── src/
-    │   ├── App.jsx             # Main React component
-    │   ├── main.jsx            # React entry point
-    │   └── index.css           # Global styles
-    ├── public/
-    ├── index.html
-    ├── package.json
-    ├── vite.config.js
-    └── tailwind.config.js
-```
-
-## 🔧 API Endpoints
+## API Endpoints
 
 ### Backend API
 
@@ -287,25 +215,18 @@ curl -X POST http://localhost:8080/api/document/query \
 
 ### Model Selection
 
-| Model | Size | RAM | Speed | Quality | Use Case |
-|-------|------|-----|-------|---------|----------|
-| gemma3:1b | 2GB | 4GB | ⚡⚡⚡ | Medium | Quick answers |
-| llama3.2:3b | 2GB | 6GB | ⚡⚡ | ⭐⭐⭐ | Balanced |
-| mistral:7b | 4GB | 8GB | ⚡ | ⭐⭐⭐⭐ | Best quality |
-| qwen2.5:3b | 2GB | 6GB | ⚡⚡ | ⭐⭐⭐ | Fast & efficient |
+| Model | Size |    RAM | Speed | Quality | Use Case |
+|-------|------------   |-----|-------|---------|----------|
+| gemma3:1b |1-2GB | 4GB | Fast | Medium | Quick answers |
+| llama3.2:3b | 2GB | 6GB | Low | Medium | Balanced |
+| mistral:7b | 4GB | 8GB | Lowest | Best | Best quality |
+| qwen2.5:3b | 2GB | 6GB | Lowest | Medium | Fast & efficient |
 
 ### Chunk Size Guidelines
 
 - **256 tokens**: Short documents, fast processing
 - **512 tokens**: Default, good balance
 - **1024 tokens**: Long documents, better context
-
-### Backend Optimization
-
-- Connection pooling for Ollama requests
-- Word indexing for faster search
-- Async summary generation
-- Request timeouts and rate limiting
 
 ## Troubleshooting
 
