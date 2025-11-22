@@ -71,7 +71,9 @@ curl http://localhost:11434/api/tags
 #### Backend
 ```bash
 # Clone the repo
-cd rag
+git clone https://github.com/sajjadanwar0/rag.git
+
+cd rag 
 
 # Set up Go backend
 cd backend
