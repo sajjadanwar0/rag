@@ -48,6 +48,8 @@ ollama list
 
 # Pull recommended models
 ollama pull gemma3:1b          # Fast, lightweight (Recommended for fast response)
+
+# You can also pull elow models if you want for further experimentations
 ollama pull llama3.2:3b        # Balanced performance (2GB)
 ollama pull mistral:7b         # Best quality (4GB)
 ollama pull qwen2.5:3b         # Fast and efficient (2GB)
