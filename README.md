@@ -10,8 +10,8 @@ A Retrieval-Augmented Generation (RAG) system that allows you to upload document
 
 - **Multiple Format Support**: Upload PDF, TXT, and MD files
 - **Local AI Processing**: Uses Ollama for completely local LLM inference
-- **Intelligent Q&A**: Ask questions about your documents with context-aware responses
-- **Smart Summarization**: Generate brief, standard, or detailed summaries
+- **Q&A**: Ask questions about your documents with context-aware responses
+- **Summarization**: Generate brief, standard, or detailed summaries
 - **Semantic Search**: Advanced word indexing and relevance scoring for accurate answers
 - **Real-time Processing**: Async summary generation with live status updates
 - **Modern UI**: Clean, responsive interface built with React and Tailwind CSS
