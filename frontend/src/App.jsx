@@ -689,7 +689,7 @@ const App = () => {
                                     ) : summaryGenerating ? (
                                         <div className="flex items-center gap-2">
                                             <Loader2 className="w-4 h-4 animate-spin" />
-                                            ✨ Summary is being generated...
+                                            Summary is being generated...
                                         </div>
                                     ) : (
                                         <div>No summary available. Generate one in the "Summarize" tab.</div>
