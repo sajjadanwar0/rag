@@ -110,7 +110,7 @@ npm run dev
 
 **Expected output:**
 ```
-VITE v5.x.x  ready in xxx ms
+VITE v7.x.x  ready in xxx ms
  Local:   http://localhost:5173/
 ```
 
